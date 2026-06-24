@@ -1,0 +1,5 @@
+Phase 01 — What you built, in one paragraph you can say in an interview
+
+"I set up an Azure Data Lake Storage Gen2 account with a medallion architecture — bronze, silver, and gold layers inside a single container. I wrote a Python script using the Azure SDK that programmatically authenticates via access key, iterates over all 7 source files, and uploads them to the bronze layer with idempotent overwrite logic. Credentials are stored in a .env file and excluded from version control. The entire project is version-controlled on GitHub."
+
+

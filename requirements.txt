@@ -1,3 +1,4 @@
 pandas
 dotenv
 azure.storage.filedatalake
+openpyxl
