@@ -1,0 +1,15 @@
+CREATE OR ALTER VIEW vw_high_risk_customers AS
+
+Select cc.customer_id,
+cc.tenure,
+cc.contract,
+cc.monthly_charges,
+cst.churn_score,
+cst.churn_category,
+RANK() OVER (partition by cc.churn order by cc.monthly_charges desc) revenue_rank
+
+from customer_churn cc
+INNER JOIN customer_services cs on cs.customer_id = cc.customer_id
+INNER JOIN customer_status cst on cst.customer_id = cc.customer_id
+
+WHERE cc.churn = 'Yes';
