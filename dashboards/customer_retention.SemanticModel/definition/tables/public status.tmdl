@@ -1,0 +1,115 @@
+table 'public status'
+	lineageTag: 6910ed60-8eec-4213-bf50-5572e8872b97
+
+	column status_id
+		dataType: string
+		lineageTag: 3bc7fd05-79d4-461b-a4bc-c55b15f3956b
+		summarizeBy: none
+		sourceColumn: status_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_id
+		dataType: string
+		lineageTag: 8e92fea9-2ef4-4381-a5cc-a6c627a36206
+		summarizeBy: none
+		sourceColumn: customer_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column count
+		dataType: int64
+		formatString: 0
+		lineageTag: edbfdaf8-f7dc-4d65-84a8-5d1a4848bdc0
+		summarizeBy: sum
+		sourceColumn: count
+
+		annotation SummarizationSetBy = Automatic
+
+	column quarter
+		dataType: string
+		lineageTag: 8a1e7157-8ff3-4121-bfd1-e9a7a3c7b112
+		summarizeBy: none
+		sourceColumn: quarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column satisfaction_score
+		dataType: int64
+		formatString: 0
+		lineageTag: fa099680-2556-4605-997a-9b6df81fc419
+		summarizeBy: sum
+		sourceColumn: satisfaction_score
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_status
+		dataType: string
+		lineageTag: fc26e26c-5ee9-4ad0-a04a-2d49537478a7
+		summarizeBy: none
+		sourceColumn: customer_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column churn_label
+		dataType: string
+		lineageTag: 023ea07a-4f58-465c-af8d-8b605e4bc333
+		summarizeBy: none
+		sourceColumn: churn_label
+
+		annotation SummarizationSetBy = Automatic
+
+	column churn_value
+		dataType: int64
+		formatString: 0
+		lineageTag: 62ee992b-aae1-4d8f-ad38-6a9d0190fa1d
+		summarizeBy: sum
+		sourceColumn: churn_value
+
+		annotation SummarizationSetBy = Automatic
+
+	column churn_score
+		dataType: int64
+		formatString: 0
+		lineageTag: 5190e3ca-4c77-434c-8d96-b327bc2d18b3
+		summarizeBy: sum
+		sourceColumn: churn_score
+
+		annotation SummarizationSetBy = Automatic
+
+	column cltv
+		dataType: int64
+		formatString: 0
+		lineageTag: 2beb7d65-27ff-4603-830b-f30cf79b9836
+		summarizeBy: sum
+		sourceColumn: cltv
+
+		annotation SummarizationSetBy = Automatic
+
+	column churn_category
+		dataType: string
+		lineageTag: 0db4514c-a86f-421c-909c-f8ccb32fde22
+		summarizeBy: none
+		sourceColumn: churn_category
+
+		annotation SummarizationSetBy = Automatic
+
+	column churn_reason
+		dataType: string
+		lineageTag: 8c159265-a3eb-40b1-927e-fb8aec751fce
+		summarizeBy: none
+		sourceColumn: churn_reason
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'public status' = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database("localhost", "customer_retention_db"),
+				    public_status = Source{[Schema="public",Item="status"]}[Data]
+				in
+				    public_status
+
+	annotation PBI_ResultType = Table
+

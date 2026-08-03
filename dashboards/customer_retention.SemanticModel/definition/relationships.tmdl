@@ -1,0 +1,39 @@
+relationship AutoDetected_3b548242-779b-4b1f-9b03-0d3e799ae783
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: 'public demographics'.customer_id
+	toColumn: 'public customer_churn'.customer_id
+
+relationship AutoDetected_3c23a89f-9e16-490a-bf79-49e4dfaca271
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: 'public location'.customer_id
+	toColumn: 'public customer_churn'.customer_id
+
+relationship AutoDetected_caea6ff5-8712-469b-9876-d0f7d49c39bf
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: 'public services'.customer_id
+	toColumn: 'public customer_churn'.customer_id
+
+relationship AutoDetected_af381c22-5871-435c-987f-4ad093e28e05
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: 'public status'.customer_id
+	toColumn: 'public customer_churn'.customer_id
+
+relationship AutoDetected_06ab77a7-0b5a-4fd1-bada-b1bb708b75aa
+	isActive: false
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: 'public telco_master'.customer_id
+	toColumn: 'public customer_churn'.customer_id
+
+relationship AutoDetected_1c25134b-940c-4620-a8a5-b86cf8a10709
+	fromColumn: 'public location'.zip_code
+	toColumn: 'public population'.zip_code
+
+relationship AutoDetected_6e0bbdeb-84dc-4134-9627-f7c024ba20cd
+	fromColumn: 'public telco_master'.zip_code
+	toColumn: 'public population'.zip_code
+

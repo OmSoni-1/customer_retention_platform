@@ -1,0 +1,188 @@
+table 'public customer_churn'
+	lineageTag: 5b766a09-4a0c-4a7e-8bb2-a732656ea270
+
+	column loyalty_id
+		dataType: int64
+		formatString: 0
+		lineageTag: f5ed0e32-5b00-4324-935b-945dc74ba846
+		summarizeBy: sum
+		sourceColumn: loyalty_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_id
+		dataType: string
+		lineageTag: e2c96723-3945-4297-ad3b-0ed140e03256
+		summarizeBy: none
+		sourceColumn: customer_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column senior_citizen
+		dataType: string
+		lineageTag: acb41c27-25b0-469a-9ab1-3171c8463271
+		summarizeBy: none
+		sourceColumn: senior_citizen
+
+		annotation SummarizationSetBy = Automatic
+
+	column partner
+		dataType: string
+		lineageTag: a3a8f822-ef59-4654-aae9-37c86c0bab75
+		summarizeBy: none
+		sourceColumn: partner
+
+		annotation SummarizationSetBy = Automatic
+
+	column dependents
+		dataType: string
+		lineageTag: 81fd5260-64c4-41bf-a327-96c7d98827bd
+		summarizeBy: none
+		sourceColumn: dependents
+
+		annotation SummarizationSetBy = Automatic
+
+	column tenure
+		dataType: int64
+		formatString: 0
+		lineageTag: 580005fc-37dd-45d0-87ae-f743da539e85
+		summarizeBy: sum
+		sourceColumn: tenure
+
+		annotation SummarizationSetBy = Automatic
+
+	column phone_service
+		dataType: string
+		lineageTag: ae39238c-b0d5-4a32-bfc0-343c2e7dd4a8
+		summarizeBy: none
+		sourceColumn: phone_service
+
+		annotation SummarizationSetBy = Automatic
+
+	column multiple_lines
+		dataType: string
+		lineageTag: 14b3c80c-ffda-496d-8605-e5d044a00400
+		summarizeBy: none
+		sourceColumn: multiple_lines
+
+		annotation SummarizationSetBy = Automatic
+
+	column internet_service
+		dataType: string
+		lineageTag: 43a22bfa-202b-4db7-929e-d00b3d6b002d
+		summarizeBy: none
+		sourceColumn: internet_service
+
+		annotation SummarizationSetBy = Automatic
+
+	column online_security
+		dataType: string
+		lineageTag: be8b7b2e-e3c7-4f1a-b23b-e2086aa16c09
+		summarizeBy: none
+		sourceColumn: online_security
+
+		annotation SummarizationSetBy = Automatic
+
+	column online_backup
+		dataType: string
+		lineageTag: 0db3ce86-728b-4d04-b974-4932984cf66d
+		summarizeBy: none
+		sourceColumn: online_backup
+
+		annotation SummarizationSetBy = Automatic
+
+	column device_protection
+		dataType: string
+		lineageTag: 42fb30e2-ae39-4ab4-be12-f8316831485c
+		summarizeBy: none
+		sourceColumn: device_protection
+
+		annotation SummarizationSetBy = Automatic
+
+	column tech_support
+		dataType: string
+		lineageTag: cafeaffb-6b99-4d16-ab2f-a0df0d95c7e4
+		summarizeBy: none
+		sourceColumn: tech_support
+
+		annotation SummarizationSetBy = Automatic
+
+	column streaming_tv
+		dataType: string
+		lineageTag: fe29ef1c-19ce-4772-9040-0ec006951b9c
+		summarizeBy: none
+		sourceColumn: streaming_tv
+
+		annotation SummarizationSetBy = Automatic
+
+	column streaming_movies
+		dataType: string
+		lineageTag: 29b2d49e-f907-48ae-b47c-7328542d9e42
+		summarizeBy: none
+		sourceColumn: streaming_movies
+
+		annotation SummarizationSetBy = Automatic
+
+	column contract
+		dataType: string
+		lineageTag: f40b8116-9258-4e7d-8099-0a08b1eb67d5
+		summarizeBy: none
+		sourceColumn: contract
+
+		annotation SummarizationSetBy = Automatic
+
+	column paperless_billing
+		dataType: string
+		lineageTag: 177ad010-9bcb-46a4-840d-5e194089e152
+		summarizeBy: none
+		sourceColumn: paperless_billing
+
+		annotation SummarizationSetBy = Automatic
+
+	column payment_method
+		dataType: string
+		lineageTag: 173a1f8f-6fd2-4ea5-9615-8b35f629e1dd
+		summarizeBy: none
+		sourceColumn: payment_method
+
+		annotation SummarizationSetBy = Automatic
+
+	column monthly_charges
+		dataType: double
+		lineageTag: 5de53965-4669-43fc-a8c3-c81ef04253fa
+		summarizeBy: sum
+		sourceColumn: monthly_charges
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column total_charges
+		dataType: double
+		lineageTag: a6d9d83c-9192-47f0-a114-173411786ba5
+		summarizeBy: sum
+		sourceColumn: total_charges
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column churn
+		dataType: string
+		lineageTag: 6d89c39f-a644-4262-a908-0e2edfdec4b0
+		summarizeBy: none
+		sourceColumn: churn
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'public customer_churn' = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database("localhost", "customer_retention_db"),
+				    public_customer_churn = Source{[Schema="public",Item="customer_churn"]}[Data]
+				in
+				    public_customer_churn
+
+	annotation PBI_ResultType = Exception
+

@@ -1,0 +1,100 @@
+table 'public location'
+	lineageTag: e3c3cfa6-43e8-439f-bf53-8a1c754400d6
+
+	column location_id
+		dataType: string
+		lineageTag: a301c755-0428-426e-b558-e21fc1e8a437
+		summarizeBy: none
+		sourceColumn: location_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_id
+		dataType: string
+		lineageTag: 2b1cca1c-d408-4d0c-a66a-9cee08c6981f
+		summarizeBy: none
+		sourceColumn: customer_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column count
+		dataType: int64
+		formatString: 0
+		lineageTag: df7ddfc3-cc99-4023-9f3f-948d87533d38
+		summarizeBy: sum
+		sourceColumn: count
+
+		annotation SummarizationSetBy = Automatic
+
+	column country
+		dataType: string
+		lineageTag: 231bd465-e4dd-4024-aa56-345f9417f242
+		summarizeBy: none
+		sourceColumn: country
+
+		annotation SummarizationSetBy = Automatic
+
+	column state
+		dataType: string
+		lineageTag: f98be73f-531b-4f10-98d6-9343565cf0e8
+		summarizeBy: none
+		sourceColumn: state
+
+		annotation SummarizationSetBy = Automatic
+
+	column city
+		dataType: string
+		lineageTag: ab90b058-1e06-4c90-b2d3-c64a44d1a46f
+		summarizeBy: none
+		sourceColumn: city
+
+		annotation SummarizationSetBy = Automatic
+
+	column zip_code
+		dataType: int64
+		formatString: 0
+		lineageTag: 6eac6928-5bdc-4f8d-a8e7-35f38e3d39eb
+		summarizeBy: none
+		sourceColumn: zip_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column lat_long
+		dataType: string
+		lineageTag: ec4d43e7-5fea-455a-a63f-7a9a72036c71
+		summarizeBy: none
+		sourceColumn: lat_long
+
+		annotation SummarizationSetBy = Automatic
+
+	column latitude
+		dataType: double
+		lineageTag: f3170b73-8e03-4138-a2b7-fd39164ba48b
+		summarizeBy: sum
+		sourceColumn: latitude
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column longitude
+		dataType: double
+		lineageTag: 6f6c0faf-4db6-4a92-af92-f73c073dcc40
+		summarizeBy: sum
+		sourceColumn: longitude
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'public location' = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database("localhost", "customer_retention_db"),
+				    public_location = Source{[Schema="public",Item="location"]}[Data]
+				in
+				    public_location
+
+	annotation PBI_ResultType = Exception
+

@@ -1,0 +1,75 @@
+table 'public vw_high_risk_customers'
+	lineageTag: 35913101-dddc-4659-ba1b-5a9d93b6f912
+
+	column customer_id
+		dataType: string
+		lineageTag: cc7c0655-ada9-483f-88cc-abfad2ff19aa
+		summarizeBy: none
+		sourceColumn: customer_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column tenure
+		dataType: int64
+		formatString: 0
+		lineageTag: 5a91ecb0-cd61-4f47-931c-aafd65cb9828
+		summarizeBy: sum
+		sourceColumn: tenure
+
+		annotation SummarizationSetBy = Automatic
+
+	column contract
+		dataType: string
+		lineageTag: ea62ea21-6800-4c1e-9a66-c643c3398504
+		summarizeBy: none
+		sourceColumn: contract
+
+		annotation SummarizationSetBy = Automatic
+
+	column monthly_charges
+		dataType: double
+		lineageTag: 7df09a08-c723-4fe7-a1a8-3d2ce3c951b5
+		summarizeBy: sum
+		sourceColumn: monthly_charges
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column churn_score
+		dataType: int64
+		formatString: 0
+		lineageTag: 0589f008-c334-4338-870b-4268b0e797ed
+		summarizeBy: sum
+		sourceColumn: churn_score
+
+		annotation SummarizationSetBy = Automatic
+
+	column churn_category
+		dataType: string
+		lineageTag: 0e473843-073c-4260-99d8-9510477a7f55
+		summarizeBy: none
+		sourceColumn: churn_category
+
+		annotation SummarizationSetBy = Automatic
+
+	column revenue_rank
+		dataType: int64
+		formatString: 0
+		lineageTag: 04b8d598-aa8b-4bb2-9c64-1873ea78ee88
+		summarizeBy: sum
+		sourceColumn: revenue_rank
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'public vw_high_risk_customers' = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database("localhost", "customer_retention_db"),
+				    public_vw_high_risk_customers = Source{[Schema="public",Item="vw_high_risk_customers"]}[Data]
+				in
+				    public_vw_high_risk_customers
+
+	annotation PBI_ResultType = Exception
+

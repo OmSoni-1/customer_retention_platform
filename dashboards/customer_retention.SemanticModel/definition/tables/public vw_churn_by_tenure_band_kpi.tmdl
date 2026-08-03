@@ -1,0 +1,52 @@
+table 'public vw_churn_by_tenure_band_kpi'
+	lineageTag: 30f65977-eb59-4bf0-93e2-73503cd4ea12
+
+	column tenure_band
+		dataType: string
+		lineageTag: 8bcebda0-0358-49ce-bc03-f529a774824b
+		summarizeBy: none
+		sourceColumn: tenure_band
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_count
+		dataType: double
+		lineageTag: 7311435f-3df8-45c4-862a-8a6f9a0a88bd
+		summarizeBy: sum
+		sourceColumn: customer_count
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column churned_count
+		dataType: double
+		lineageTag: 9e117811-a8fe-4b62-b7e6-e21d77d24590
+		summarizeBy: sum
+		sourceColumn: churned_count
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column churn_rate_percentage
+		dataType: double
+		lineageTag: 5e0afc40-e2b2-4888-862c-af293c5e4fe9
+		summarizeBy: sum
+		sourceColumn: churn_rate_percentage
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'public vw_churn_by_tenure_band_kpi' = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database("localhost", "customer_retention_db"),
+				    public_vw_churn_by_tenure_band_kpi = Source{[Schema="public",Item="vw_churn_by_tenure_band_kpi"]}[Data]
+				in
+				    public_vw_churn_by_tenure_band_kpi
+
+	annotation PBI_ResultType = Exception
+

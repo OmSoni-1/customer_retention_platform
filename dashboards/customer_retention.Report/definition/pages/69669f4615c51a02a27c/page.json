@@ -1,0 +1,13 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "69669f4615c51a02a27c",
+  "displayName": "Churn Segment Analysis",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280,
+  "pageBinding": {
+    "name": "aca54702e64e420671a2",
+    "type": "Default",
+    "parameters": []
+  }
+}

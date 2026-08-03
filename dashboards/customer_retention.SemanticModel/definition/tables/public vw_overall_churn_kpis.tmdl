@@ -1,0 +1,93 @@
+table 'public vw_overall_churn_kpis'
+	lineageTag: 182c1e91-df73-447f-9939-512858d6328e
+
+	column total_customers
+		dataType: int64
+		formatString: 0
+		lineageTag: 77db870a-4bc4-45bd-8526-2e9f4e9ecdb2
+		summarizeBy: sum
+		sourceColumn: total_customers
+
+		annotation SummarizationSetBy = Automatic
+
+	column churned_customers
+		dataType: double
+		lineageTag: f935ad71-4b08-40bd-b14d-e4af3967582f
+		summarizeBy: sum
+		sourceColumn: churned_customers
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column retained_customers
+		dataType: double
+		lineageTag: 6988d6f3-05c3-448b-a264-d0e1a691cdbb
+		summarizeBy: sum
+		sourceColumn: retained_customers
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column churn_rate_pct
+		dataType: double
+		lineageTag: 0909e690-9efc-4c72-8241-35467f7c628b
+		summarizeBy: sum
+		sourceColumn: churn_rate_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column total_revenue_at_risk
+		dataType: double
+		lineageTag: 184233f6-4887-4454-9802-ca7ca9230b40
+		summarizeBy: sum
+		sourceColumn: total_revenue_at_risk
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column avg_cltv_churned
+		dataType: double
+		lineageTag: 63f3b7ea-ccbd-4a9a-ae79-13fcc2529872
+		summarizeBy: sum
+		sourceColumn: avg_cltv_churned
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column avg_cltv_retained
+		dataType: double
+		lineageTag: a606ef51-1d92-4969-afbe-cba9fabd0891
+		summarizeBy: sum
+		sourceColumn: avg_cltv_retained
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column churn_rate_pct_bi
+		dataType: double
+		lineageTag: 1f627ada-d796-43f1-96ae-cc71c595a538
+		summarizeBy: sum
+		sourceColumn: churn_rate_pct_bi
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'public vw_overall_churn_kpis' = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database("localhost", "customer_retention_db"),
+				    public_vw_overall_churn_kpis = Source{[Schema="public",Item="vw_overall_churn_kpis"]}[Data]
+				in
+				    public_vw_overall_churn_kpis
+
+	annotation PBI_ResultType = Table
+

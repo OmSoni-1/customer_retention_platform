@@ -1,0 +1,89 @@
+table 'public demographics'
+	lineageTag: d10b3c0e-f8fc-4bbc-9e9f-30668a5ec89a
+
+	column customer_id
+		dataType: string
+		lineageTag: b9e1f736-ce7f-4710-aedd-14f65ef45368
+		summarizeBy: none
+		sourceColumn: customer_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column count
+		dataType: int64
+		formatString: 0
+		lineageTag: 9123842a-1e52-4b02-b4eb-4de85f785a6b
+		summarizeBy: sum
+		sourceColumn: count
+
+		annotation SummarizationSetBy = Automatic
+
+	column gender
+		dataType: string
+		lineageTag: 2a4d982e-917a-4073-a793-a946e9d71a93
+		summarizeBy: none
+		sourceColumn: gender
+
+		annotation SummarizationSetBy = Automatic
+
+	column age
+		dataType: int64
+		formatString: 0
+		lineageTag: 5c5424d1-b832-4fdf-b86d-ea4d486fd608
+		summarizeBy: sum
+		sourceColumn: age
+
+		annotation SummarizationSetBy = Automatic
+
+	column under_30
+		dataType: string
+		lineageTag: 8e3cfe8d-8a93-4a7f-8f29-1d251dc50755
+		summarizeBy: none
+		sourceColumn: under_30
+
+		annotation SummarizationSetBy = Automatic
+
+	column senior_citizen
+		dataType: string
+		lineageTag: bde77452-ab2f-4951-a3b7-8b0e3cc67acb
+		summarizeBy: none
+		sourceColumn: senior_citizen
+
+		annotation SummarizationSetBy = Automatic
+
+	column married
+		dataType: string
+		lineageTag: 816004ea-fec2-4a61-8476-c53c43562959
+		summarizeBy: none
+		sourceColumn: married
+
+		annotation SummarizationSetBy = Automatic
+
+	column dependents
+		dataType: string
+		lineageTag: 6e3134ad-9f26-47df-ab3c-1bc93fdc6fb3
+		summarizeBy: none
+		sourceColumn: dependents
+
+		annotation SummarizationSetBy = Automatic
+
+	column number_of_dependents
+		dataType: int64
+		formatString: 0
+		lineageTag: b86fcf1b-f82b-4e12-9c52-91ee5ef16f29
+		summarizeBy: sum
+		sourceColumn: number_of_dependents
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'public demographics' = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database("localhost", "customer_retention_db"),
+				    public_demographics = Source{[Schema="public",Item="demographics"]}[Data]
+				in
+				    public_demographics
+
+	annotation PBI_ResultType = Exception
+

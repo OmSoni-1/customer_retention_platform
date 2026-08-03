@@ -1,0 +1,30 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	valueFilterBehavior: independent
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["public vw_churn_by_contract_kpi","public vw_churn_by_payment_method_kpi","public vw_high_risk_customers","public customer_churn","public vw_overall_churn_kpis","public vw_churn_by_tenure_band_kpi","public demographics","public location","public population","public services","public status","public telco_master"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table 'public vw_churn_by_contract_kpi'
+ref table 'public vw_churn_by_payment_method_kpi'
+ref table 'public vw_high_risk_customers'
+ref table 'public customer_churn'
+ref table 'public vw_overall_churn_kpis'
+ref table 'public vw_churn_by_tenure_band_kpi'
+ref table 'public demographics'
+ref table 'public location'
+ref table 'public population'
+ref table 'public services'
+ref table 'public status'
+ref table 'public telco_master'
+
+ref cultureInfo en-US
+

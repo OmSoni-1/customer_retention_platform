@@ -1,0 +1,41 @@
+table 'public population'
+	lineageTag: 53cb73fc-ffea-4fca-afcd-0f52eff100b7
+
+	column id
+		dataType: int64
+		formatString: 0
+		lineageTag: a3c9e2f4-bbdb-4f2a-8cb2-9b2ca7cc8f5c
+		summarizeBy: sum
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	column zip_code
+		dataType: int64
+		formatString: 0
+		lineageTag: 3b7548b4-0553-43ab-aa91-277c3a5bf9cd
+		summarizeBy: none
+		sourceColumn: zip_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column population
+		dataType: int64
+		formatString: 0
+		lineageTag: 3db7b740-0f00-4e80-92e8-417bd050031c
+		summarizeBy: sum
+		sourceColumn: population
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'public population' = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database("localhost", "customer_retention_db"),
+				    public_population = Source{[Schema="public",Item="population"]}[Data]
+				in
+				    public_population
+
+	annotation PBI_ResultType = Exception
+

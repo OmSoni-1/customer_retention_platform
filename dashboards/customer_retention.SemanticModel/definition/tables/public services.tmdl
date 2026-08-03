@@ -1,0 +1,279 @@
+table 'public services'
+	lineageTag: 57a2a85b-3816-40d5-b8ed-ce0662a65a1b
+
+	column service_id
+		dataType: string
+		lineageTag: 790707c8-ccca-4fbd-80a7-2092f17e2e57
+		summarizeBy: none
+		sourceColumn: service_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_id
+		dataType: string
+		lineageTag: 67a2352a-6f05-4f78-b836-aae9f1af3040
+		summarizeBy: none
+		sourceColumn: customer_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column count
+		dataType: int64
+		formatString: 0
+		lineageTag: e63594f1-4d4b-439e-92bb-5ad8c2dfee27
+		summarizeBy: sum
+		sourceColumn: count
+
+		annotation SummarizationSetBy = Automatic
+
+	column quarter
+		dataType: string
+		lineageTag: 8ddf0761-b3ec-4874-845f-d9abf87e44ae
+		summarizeBy: none
+		sourceColumn: quarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column referred_a_friend
+		dataType: string
+		lineageTag: 51d33a92-bf06-4219-9f9c-0b4c7573ae37
+		summarizeBy: none
+		sourceColumn: referred_a_friend
+
+		annotation SummarizationSetBy = Automatic
+
+	column number_of_referrals
+		dataType: int64
+		formatString: 0
+		lineageTag: 04df1708-a33d-48e8-a377-b01915bee1cf
+		summarizeBy: sum
+		sourceColumn: number_of_referrals
+
+		annotation SummarizationSetBy = Automatic
+
+	column tenure_in_months
+		dataType: int64
+		formatString: 0
+		lineageTag: 7a8d9ef0-e338-47f0-afdd-db01baeebfbd
+		summarizeBy: sum
+		sourceColumn: tenure_in_months
+
+		annotation SummarizationSetBy = Automatic
+
+	column offer
+		dataType: string
+		lineageTag: c78a40a7-7e68-45d2-a7dd-811e633b6063
+		summarizeBy: none
+		sourceColumn: offer
+
+		annotation SummarizationSetBy = Automatic
+
+	column phone_service
+		dataType: string
+		lineageTag: 6b0f8f62-1b6b-4680-bc87-4c451e7fad4e
+		summarizeBy: none
+		sourceColumn: phone_service
+
+		annotation SummarizationSetBy = Automatic
+
+	column avg_monthly_long_distance_charges
+		dataType: double
+		lineageTag: 7b0bb854-8a58-4731-a367-11829beb7149
+		summarizeBy: sum
+		sourceColumn: avg_monthly_long_distance_charges
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column multiple_lines
+		dataType: string
+		lineageTag: d693e262-7335-45ae-b4ea-e6c813b24b9a
+		summarizeBy: none
+		sourceColumn: multiple_lines
+
+		annotation SummarizationSetBy = Automatic
+
+	column internet_service
+		dataType: string
+		lineageTag: b02cb5ea-3012-40bf-993b-23bf6fa8d509
+		summarizeBy: none
+		sourceColumn: internet_service
+
+		annotation SummarizationSetBy = Automatic
+
+	column internet_type
+		dataType: string
+		lineageTag: 75a0f23a-4b4e-4449-91cf-feaabfdbe9e9
+		summarizeBy: none
+		sourceColumn: internet_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column avg_monthly_gb_download
+		dataType: int64
+		formatString: 0
+		lineageTag: ba0a7694-0c0c-4ce1-823e-32c7e31987d6
+		summarizeBy: sum
+		sourceColumn: avg_monthly_gb_download
+
+		annotation SummarizationSetBy = Automatic
+
+	column online_security
+		dataType: string
+		lineageTag: f2f29928-b23a-43ef-aaea-3fe34f9bceeb
+		summarizeBy: none
+		sourceColumn: online_security
+
+		annotation SummarizationSetBy = Automatic
+
+	column online_backup
+		dataType: string
+		lineageTag: 0b6e7dc5-a415-441b-8e9c-858111ddf635
+		summarizeBy: none
+		sourceColumn: online_backup
+
+		annotation SummarizationSetBy = Automatic
+
+	column device_protection_plan
+		dataType: string
+		lineageTag: a8ea43a7-7d97-473e-a189-28ac8471d28c
+		summarizeBy: none
+		sourceColumn: device_protection_plan
+
+		annotation SummarizationSetBy = Automatic
+
+	column premium_tech_support
+		dataType: string
+		lineageTag: 4ee53121-6265-43be-94a1-d35d515b646b
+		summarizeBy: none
+		sourceColumn: premium_tech_support
+
+		annotation SummarizationSetBy = Automatic
+
+	column streaming_tv
+		dataType: string
+		lineageTag: 6d1b52f7-5094-4eff-8f4c-fc683878a3fe
+		summarizeBy: none
+		sourceColumn: streaming_tv
+
+		annotation SummarizationSetBy = Automatic
+
+	column streaming_movies
+		dataType: string
+		lineageTag: 776da252-1f2f-4212-8215-a08907fa2a42
+		summarizeBy: none
+		sourceColumn: streaming_movies
+
+		annotation SummarizationSetBy = Automatic
+
+	column streaming_music
+		dataType: string
+		lineageTag: 1f81e1c9-6f2f-4ec3-8d50-6a21eb2c5182
+		summarizeBy: none
+		sourceColumn: streaming_music
+
+		annotation SummarizationSetBy = Automatic
+
+	column unlimited_data
+		dataType: string
+		lineageTag: 46a3eda2-63df-422f-a8a5-89843e5975f6
+		summarizeBy: none
+		sourceColumn: unlimited_data
+
+		annotation SummarizationSetBy = Automatic
+
+	column contract
+		dataType: string
+		lineageTag: 1f2322a5-1431-439e-9853-62ef99534c2b
+		summarizeBy: none
+		sourceColumn: contract
+
+		annotation SummarizationSetBy = Automatic
+
+	column paperless_billing
+		dataType: string
+		lineageTag: 2adef76c-79d9-41b8-86b1-c17645c52351
+		summarizeBy: none
+		sourceColumn: paperless_billing
+
+		annotation SummarizationSetBy = Automatic
+
+	column payment_method
+		dataType: string
+		lineageTag: 84dea62d-3f54-4eeb-968f-dc100808b24e
+		summarizeBy: none
+		sourceColumn: payment_method
+
+		annotation SummarizationSetBy = Automatic
+
+	column monthly_charge
+		dataType: double
+		lineageTag: 19707bee-413c-4ea1-886b-0c075f1757e5
+		summarizeBy: sum
+		sourceColumn: monthly_charge
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column total_charges
+		dataType: double
+		lineageTag: 3857aae9-93e3-4862-99d0-b5d174fa1ad7
+		summarizeBy: sum
+		sourceColumn: total_charges
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column total_refunds
+		dataType: double
+		lineageTag: 8a17ceb2-dff2-4ef3-91f2-696ff9f77d19
+		summarizeBy: sum
+		sourceColumn: total_refunds
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column total_extra_data_charges
+		dataType: int64
+		formatString: 0
+		lineageTag: 2195adfc-a19c-426c-8313-34df8ead3021
+		summarizeBy: sum
+		sourceColumn: total_extra_data_charges
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_long_distance_charges
+		dataType: double
+		lineageTag: d011a5ca-091f-4a3a-a55c-42be857aa1a5
+		summarizeBy: sum
+		sourceColumn: total_long_distance_charges
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column total_revenue
+		dataType: double
+		lineageTag: 162a48c3-5e6d-465d-a8ed-b56e035b35b8
+		summarizeBy: sum
+		sourceColumn: total_revenue
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'public services' = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database("localhost", "customer_retention_db"),
+				    public_services = Source{[Schema="public",Item="services"]}[Data]
+				in
+				    public_services
+
+	annotation PBI_ResultType = Table
+

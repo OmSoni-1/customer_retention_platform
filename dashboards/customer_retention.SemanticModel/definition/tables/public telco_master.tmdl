@@ -1,0 +1,292 @@
+table 'public telco_master'
+	lineageTag: ec222061-f4a3-404a-aae9-35c17d96b343
+
+	column customer_id
+		dataType: string
+		lineageTag: 1ed02402-fcba-40e5-b0e9-930c6bba0550
+		summarizeBy: none
+		sourceColumn: customer_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column count
+		dataType: int64
+		formatString: 0
+		lineageTag: 81dca05a-3ad3-48c6-8fd5-1d8716d228f3
+		summarizeBy: sum
+		sourceColumn: count
+
+		annotation SummarizationSetBy = Automatic
+
+	column country
+		dataType: string
+		lineageTag: e8134b2d-7569-4728-b6dc-97b7d24058be
+		summarizeBy: none
+		sourceColumn: country
+
+		annotation SummarizationSetBy = Automatic
+
+	column state
+		dataType: string
+		lineageTag: 35005151-5733-4b68-807f-cae22a0cea95
+		summarizeBy: none
+		sourceColumn: state
+
+		annotation SummarizationSetBy = Automatic
+
+	column city
+		dataType: string
+		lineageTag: 17526b57-0c26-441b-920d-5e0ed293fb5b
+		summarizeBy: none
+		sourceColumn: city
+
+		annotation SummarizationSetBy = Automatic
+
+	column zip_code
+		dataType: int64
+		formatString: 0
+		lineageTag: 0bc32ac1-4341-4fbd-ab61-8d810c4fb8af
+		summarizeBy: none
+		sourceColumn: zip_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column lat_long
+		dataType: string
+		lineageTag: ebde91ce-c11b-431d-ba08-466fbfbc05ef
+		summarizeBy: none
+		sourceColumn: lat_long
+
+		annotation SummarizationSetBy = Automatic
+
+	column latitude
+		dataType: double
+		lineageTag: 92c84989-7215-4266-80fa-0f68cf2fbea2
+		summarizeBy: sum
+		sourceColumn: latitude
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column longitude
+		dataType: double
+		lineageTag: ef23ad34-ead7-4700-9c0e-fd1fc2ad1ce4
+		summarizeBy: sum
+		sourceColumn: longitude
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column gender
+		dataType: string
+		lineageTag: f52d7a89-4583-4e2d-b490-2f4990c92114
+		summarizeBy: none
+		sourceColumn: gender
+
+		annotation SummarizationSetBy = Automatic
+
+	column senior_citizen
+		dataType: string
+		lineageTag: 7fab512f-9b75-49ef-8c75-96e62128d486
+		summarizeBy: none
+		sourceColumn: senior_citizen
+
+		annotation SummarizationSetBy = Automatic
+
+	column partner
+		dataType: string
+		lineageTag: c333dad5-ec9c-4526-84f2-69ad218c1225
+		summarizeBy: none
+		sourceColumn: partner
+
+		annotation SummarizationSetBy = Automatic
+
+	column dependents
+		dataType: string
+		lineageTag: 47692285-c63c-49d2-bae3-64010bd00bc7
+		summarizeBy: none
+		sourceColumn: dependents
+
+		annotation SummarizationSetBy = Automatic
+
+	column tenure_months
+		dataType: int64
+		formatString: 0
+		lineageTag: dd7edf01-0677-4c5a-94a7-73a03172c651
+		summarizeBy: sum
+		sourceColumn: tenure_months
+
+		annotation SummarizationSetBy = Automatic
+
+	column phone_service
+		dataType: string
+		lineageTag: 0b1328bd-564a-47d3-9dec-ed3286b83906
+		summarizeBy: none
+		sourceColumn: phone_service
+
+		annotation SummarizationSetBy = Automatic
+
+	column multiple_lines
+		dataType: string
+		lineageTag: debeb541-cfa5-4c0b-a210-93044f2cf539
+		summarizeBy: none
+		sourceColumn: multiple_lines
+
+		annotation SummarizationSetBy = Automatic
+
+	column internet_service
+		dataType: string
+		lineageTag: 52da4a3c-ad3e-4925-bcb8-df47119533a1
+		summarizeBy: none
+		sourceColumn: internet_service
+
+		annotation SummarizationSetBy = Automatic
+
+	column online_security
+		dataType: string
+		lineageTag: b74890ad-5e66-45f0-8c08-6efdeff35ba7
+		summarizeBy: none
+		sourceColumn: online_security
+
+		annotation SummarizationSetBy = Automatic
+
+	column online_backup
+		dataType: string
+		lineageTag: ea582acc-678a-4412-8d58-5c2033001eab
+		summarizeBy: none
+		sourceColumn: online_backup
+
+		annotation SummarizationSetBy = Automatic
+
+	column device_protection
+		dataType: string
+		lineageTag: ede2e837-ca2f-486a-b1a6-6f940d1fea44
+		summarizeBy: none
+		sourceColumn: device_protection
+
+		annotation SummarizationSetBy = Automatic
+
+	column tech_support
+		dataType: string
+		lineageTag: bcfbdc6c-1c09-4a94-a6df-d32bf83c09db
+		summarizeBy: none
+		sourceColumn: tech_support
+
+		annotation SummarizationSetBy = Automatic
+
+	column streaming_tv
+		dataType: string
+		lineageTag: 696e4c34-927a-4f35-a892-d5d7a2d52cf4
+		summarizeBy: none
+		sourceColumn: streaming_tv
+
+		annotation SummarizationSetBy = Automatic
+
+	column streaming_movies
+		dataType: string
+		lineageTag: 38145349-cfa5-4e99-8245-c7ac745bbbb7
+		summarizeBy: none
+		sourceColumn: streaming_movies
+
+		annotation SummarizationSetBy = Automatic
+
+	column contract
+		dataType: string
+		lineageTag: 30b81b2c-ef98-499f-9e1d-475691e8d4e8
+		summarizeBy: none
+		sourceColumn: contract
+
+		annotation SummarizationSetBy = Automatic
+
+	column paperless_billing
+		dataType: string
+		lineageTag: 3f528048-82c2-4e07-bd72-c3b7fd7f0714
+		summarizeBy: none
+		sourceColumn: paperless_billing
+
+		annotation SummarizationSetBy = Automatic
+
+	column payment_method
+		dataType: string
+		lineageTag: 11e7fe06-6895-4a36-8ffb-8436383c693f
+		summarizeBy: none
+		sourceColumn: payment_method
+
+		annotation SummarizationSetBy = Automatic
+
+	column monthly_charges
+		dataType: double
+		lineageTag: a5e68d71-1f5c-4a6e-aa6f-22ea136ecc6e
+		summarizeBy: sum
+		sourceColumn: monthly_charges
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column total_charges
+		dataType: double
+		lineageTag: d2437746-04bd-401c-8d9e-1662f1245c66
+		summarizeBy: sum
+		sourceColumn: total_charges
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column churn_label
+		dataType: string
+		lineageTag: 8be7cd4c-a402-49eb-9397-4a2fd8c55539
+		summarizeBy: none
+		sourceColumn: churn_label
+
+		annotation SummarizationSetBy = Automatic
+
+	column churn_value
+		dataType: int64
+		formatString: 0
+		lineageTag: af4bafbd-225b-49d1-831e-d675c48c8774
+		summarizeBy: sum
+		sourceColumn: churn_value
+
+		annotation SummarizationSetBy = Automatic
+
+	column churn_score
+		dataType: int64
+		formatString: 0
+		lineageTag: a1f2747d-c6b1-4a51-8426-4fbf8be47af8
+		summarizeBy: sum
+		sourceColumn: churn_score
+
+		annotation SummarizationSetBy = Automatic
+
+	column cltv
+		dataType: int64
+		formatString: 0
+		lineageTag: ed4de10d-48c3-498f-96fd-88e2a0664422
+		summarizeBy: sum
+		sourceColumn: cltv
+
+		annotation SummarizationSetBy = Automatic
+
+	column churn_reason
+		dataType: string
+		lineageTag: e2804b1a-59fe-45cd-b024-c65a674ab75c
+		summarizeBy: none
+		sourceColumn: churn_reason
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'public telco_master' = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database("localhost", "customer_retention_db"),
+				    public_telco_master = Source{[Schema="public",Item="telco_master"]}[Data]
+				in
+				    public_telco_master
+
+	annotation PBI_ResultType = Table
+
