@@ -1,10 +1,10 @@
-CREATE OR ALTER VIEW vw_overall_churn_kpis AS
+CREATE OR REPLACE VIEW vw_overall_churn_kpis AS
 Select 
     x.total_customers total_customers,
     x.churned_customers_count churned_customers,
     x.retained_customers_count retained_customers,
-    ROUND((x.churned_customers_count / NULLIF(CAST(x.total_customers AS DECIMAL(10,2)), 0)) * 100, 2) 
-    churn_rate_pct,
+    ROUND((x.churned_customers_count / NULLIF(CAST(x.total_customers AS DECIMAL(10,2)), 0)) * 100, 2) churn_rate_pct,
+    ROUND((x.churned_customers_count / NULLIF(CAST(x.total_customers AS DECIMAL(10,2)), 0)), 4) churn_rate_pct_BI,
     total_revenue_at_risk,
     ROUND(x.churned_customers_cltv / NULLIF(x.churned_customers_count, 0), 2) avg_cltv_churned,
     ROUND(x.retained_customers_cltv / NULLIF(x.retained_customers_count, 0), 2) avg_cltv_retained 

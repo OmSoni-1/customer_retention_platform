@@ -1,4 +1,4 @@
-CREATE OR ALTER VIEW vw_churn_by_tenure_band_kpi AS
+CREATE OR REPLACE VIEW vw_churn_by_tenure_band_kpi AS
 
 Select TOP 100 tenure_band,
 customer_count, 

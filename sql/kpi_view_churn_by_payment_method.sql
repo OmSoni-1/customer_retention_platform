@@ -1,4 +1,4 @@
-CREATE OR ALTER VIEW vw_churn_by_payment_method_kpi
+CREATE OR REPLACE VIEW vw_churn_by_payment_method_kpi
 
 AS
 

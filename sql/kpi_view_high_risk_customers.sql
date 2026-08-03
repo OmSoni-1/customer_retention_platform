@@ -1,4 +1,4 @@
-CREATE OR ALTER VIEW vw_high_risk_customers AS
+CREATE OR REPLACE VIEW vw_high_risk_customers AS
 SELECT
     cc.customer_id,
     cc.tenure,
