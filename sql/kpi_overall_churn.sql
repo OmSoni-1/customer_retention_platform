@@ -1,12 +1,11 @@
 CREATE OR ALTER VIEW vw_overall_churn_kpis AS
-
 Select 
-    x.total_customers total_customers ,
+    x.total_customers total_customers,
     x.churned_customers_count churned_customers,
     x.retained_customers_count retained_customers,
     ROUND((x.churned_customers_count / NULLIF(CAST(x.total_customers AS DECIMAL(10,2)), 0)) * 100, 2) 
     churn_rate_pct,
-    ROUND(x.total_revenue_at_risk, 2) total_revenue_at_risk,
+    total_revenue_at_risk,
     ROUND(x.churned_customers_cltv / NULLIF(x.churned_customers_count, 0), 2) avg_cltv_churned,
     ROUND(x.retained_customers_cltv / NULLIF(x.retained_customers_count, 0), 2) avg_cltv_retained 
 
@@ -22,6 +21,6 @@ FROM
         SUM(CASE WHEN cs.churn_label = 'Yes' THEN 0 ELSE cs.cltv END) retained_customers_cltv
 
     from customer_churn cc
-    INNER JOIN customer_status as cs ON cc.customer_id = cs.customer_id
+    INNER JOIN status as cs ON cc.customer_id = cs.customer_id
 
 ) x;

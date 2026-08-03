@@ -3,3 +3,4 @@ data/
 practice/
 .venv
 interview Q&A.txt
+.env
