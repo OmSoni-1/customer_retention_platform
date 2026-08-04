@@ -1,0 +1,186 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "b10e7b87bdadd02c4d2e",
+  "position": {
+    "x": 216.92307692307691,
+    "y": 11.538461538461538,
+    "z": 0,
+    "height": 425.38461538461536,
+    "width": 845.38461538461536,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "public vw_high_risk_customers"
+                    }
+                  },
+                  "Property": "customer_id"
+                }
+              },
+              "queryRef": "public vw_high_risk_customers.customer_id",
+              "nativeQueryRef": "customer_id"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "public vw_high_risk_customers"
+                    }
+                  },
+                  "Property": "contract"
+                }
+              },
+              "queryRef": "public vw_high_risk_customers.contract",
+              "nativeQueryRef": "contract"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "public vw_high_risk_customers"
+                        }
+                      },
+                      "Property": "tenure"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(public vw_high_risk_customers.tenure)",
+              "nativeQueryRef": "Sum of tenure"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "public vw_high_risk_customers"
+                        }
+                      },
+                      "Property": "monthly_charges"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(public vw_high_risk_customers.monthly_charges)",
+              "nativeQueryRef": "Sum of monthly_charges"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "public vw_high_risk_customers"
+                        }
+                      },
+                      "Property": "churn_score"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(public vw_high_risk_customers.churn_score)",
+              "nativeQueryRef": "Sum of churn_score"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "public vw_high_risk_customers"
+                    }
+                  },
+                  "Property": "churn_category"
+                }
+              },
+              "queryRef": "public vw_high_risk_customers.churn_category",
+              "nativeQueryRef": "churn_category"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "public vw_high_risk_customers"
+                        }
+                      },
+                      "Property": "revenue_rank"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(public vw_high_risk_customers.revenue_rank)",
+              "nativeQueryRef": "Sum of revenue_rank"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "public vw_high_risk_customers"
+                      }
+                    },
+                    "Property": "churn_score"
+                  }
+                },
+                "Function": 0
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Top At-Risk Customers by Churn Score'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

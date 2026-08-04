@@ -10,10 +10,10 @@
     "tabOrder": 4
   },
   "visual": {
-    "visualType": "pieChart",
+    "visualType": "clusteredBarChart",
     "query": {
       "queryState": {
-        "Series": {
+        "Category": {
           "projections": [
             {
               "field": {
@@ -28,6 +28,7 @@
               },
               "queryRef": "public services.internet_type",
               "nativeQueryRef": "Internet Type",
+              "active": true,
               "displayName": "Internet Type"
             }
           ]
@@ -51,7 +52,8 @@
                 }
               },
               "queryRef": "CountNonNull(public services.customer_id)",
-              "nativeQueryRef": "Count of customer_id",
+              "nativeQueryRef": "Count of Customers",
+              "displayName": "Count of Customers",
               "format": "#,0"
             }
           ]
@@ -213,13 +215,6 @@
       "labels": [
         {
           "properties": {
-            "labelStyle": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Data value, percent of total'"
-                }
-              }
-            },
             "labelDisplayUnits": {
               "expr": {
                 "Literal": {
@@ -227,10 +222,23 @@
                 }
               }
             },
-            "percentageLabelPrecision": {
+            "show": {
               "expr": {
                 "Literal": {
-                  "Value": "0L"
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "valueAxis": [
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
                 }
               }
             }
@@ -251,31 +259,25 @@
             }
           }
         }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "drillFilterOtherVisuals": true
   },
   "filterConfig": {
     "filters": [
-      {
-        "name": "79d2794d819a209da5be",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "public services"
-                  }
-                },
-                "Property": "customer_id"
-              }
-            },
-            "Function": 5
-          }
-        },
-        "type": "Advanced"
-      },
       {
         "name": "6ce2bca152ce346dbd06",
         "field": {

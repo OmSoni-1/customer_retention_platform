@@ -51,7 +51,8 @@
                 }
               },
               "queryRef": "CountNonNull(public status.churn_reason)",
-              "nativeQueryRef": "Count of churn_reason"
+              "nativeQueryRef": "Number of Customers",
+              "displayName": "Number of Customers"
             }
           ]
         }
